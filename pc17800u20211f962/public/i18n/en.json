@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Open Library Explorer",
+    "logo-alt": "Open Library logo"
+  },
+  "language": {
+    "selector": "Interface language",
+    "en": "English",
+    "es": "Spanish"
+  },
+  "catalogue": {
+    "title": "Book Catalogue",
+    "category-selector": "Book category",
+    "loading": "Loading books",
+    "error": "Books could not be loaded. Please try again later."
+  },
+  "category": {
+    "software-engineering": "Software Engineering",
+    "artificial-intelligence": "Artificial Intelligence"
+  },
+  "book": {
+    "authors": "Authors",
+    "first-publish-year": "First published",
+    "edition-count": "Editions",
+    "unknown": "Unknown",
+    "details": "Book Details",
+    "details-aria": "Open details of {{title}} in a new tab",
+    "cover-alt": "Cover of {{title}}",
+    "no-cover": "Cover not available"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026 Open Library. All rights reserved.",
+    "developed-by": "Developed by"
+  }
+}

@@ -1,0 +1,7 @@
+<ul class="book-grid">
+  @for (book of books(); track book.id) {
+    <li>
+      <app-book-item [book]="book"/>
+    </li>
+  }
+</ul>

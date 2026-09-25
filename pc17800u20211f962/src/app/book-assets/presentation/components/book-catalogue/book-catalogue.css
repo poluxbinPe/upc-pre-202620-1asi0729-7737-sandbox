@@ -1,0 +1,18 @@
+.book-catalogue {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.catalogue-title {
+  font: var(--mat-sys-headline-medium);
+  margin: 8px 0 16px;
+}
+
+.catalogue-content {
+  margin-top: 16px;
+}
+
+mat-progress-spinner {
+  margin: 48px auto;
+}

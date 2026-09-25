@@ -1,0 +1,138 @@
+@startuml
+
+package "app" {
+  class App <<component>>
+}
+
+package "shared.domain.model" {
+  class Url {
+    - url: string
+    + {static} isValid(value: string): boolean
+    + isEmpty(): boolean
+    + toString(): string
+  }
+}
+
+package "shared.infrastructure" {
+  class LogoDevApi <<service>> {
+    - baseUrl: string
+    - apiKey: string
+    + getUrlToLogo(url: string): string
+  }
+}
+
+package "shared.presentation.components" {
+  class Layout <<component>> {
+    # logoUrl: string
+  }
+  class LanguageSwitcher <<component>> {
+    # languages: string[]
+    # currentLanguage: Signal<string>
+    + useLanguage(language: string)
+  }
+  class Footer <<component>> {
+    # developer: string
+  }
+}
+
+package "book-assets.domain.model" {
+  class Book <<entity>> {
+    id: string
+    title: string
+    authorNames: string[]
+    firstPublishYear: number | null
+    editionCount: number
+    coverUrl: Url
+    detailsUrl: Url
+    authorNamesAsText: string
+    hasCover: boolean
+    coverUrlAsString: string
+    detailsUrlAsString: string
+  }
+  class BookCategory {
+    + {static} SoftwareEngineering: BookCategory
+    + {static} ArtificialIntelligence: BookCategory
+    + id: string
+    + searchTerm: string
+    + {static} values(): BookCategory[]
+    + {static} fromId(id: string): BookCategory
+  }
+}
+
+package "book-assets.infrastructure" {
+  interface BooksResponse <<response>> {
+    numFound: number
+    start: number
+    docs: BookResource[]
+  }
+  interface BookResource <<resource>> {
+    key: string
+    title: string
+    author_name?: string[]
+    first_publish_year?: number
+    edition_count?: number
+    cover_i?: number
+  }
+  class BookAssembler <<assembler>> {
+    + toEntityFromResource(resource: BookResource): Book
+    + toEntitiesFromResponse(response: BooksResponse): Book[]
+    - buildCoverUrl(coverId: number): string
+  }
+  class OpenLibraryApi <<service>> {
+    - http: HttpClient
+    - bookAssembler: BookAssembler
+    + getBooksByCategory(category: BookCategory): Observable<Book[]>
+  }
+}
+
+package "book-assets.application" {
+  class BookAssetsStore <<store>> {
+    - currentCategorySignal: WritableSignal<BookCategory>
+    - booksSignal: WritableSignal<Record<string, Book[]>>
+    - loadingSignal: WritableSignal<boolean>
+    - errorSignal: WritableSignal<boolean>
+    + categories: BookCategory[]
+    + currentCategory: Signal<BookCategory>
+    + currentCategoryBooks: Signal<Book[]>
+    + loading: Signal<boolean>
+    + error: Signal<boolean>
+    + selectCategory(category: BookCategory)
+    + loadBooksForCurrentCategory()
+  }
+}
+
+package "book-assets.presentation.components" {
+  class BookCatalogue <<component>> {
+    + onCategorySelected(category: BookCategory)
+  }
+  class BookCategorySelector <<component>> {
+    categories: InputSignal<BookCategory[]>
+    selectedCategory: InputSignal<BookCategory>
+    categorySelected: OutputEmitterRef<BookCategory>
+  }
+  class BookList <<component>> {
+    books: InputSignal<Book[]>
+  }
+  class BookItem <<component>> {
+    book: InputSignal<Book>
+  }
+}
+
+App --> Layout
+Layout --> LanguageSwitcher
+Layout --> Footer
+Layout --> BookCatalogue
+Layout ..> LogoDevApi
+BookCatalogue --> BookCategorySelector
+BookCatalogue --> BookList
+BookList --> BookItem
+BookCatalogue ..> BookAssetsStore
+BookAssetsStore ..> OpenLibraryApi
+OpenLibraryApi ..> BookAssembler
+BookAssembler ..> BooksResponse
+BooksResponse o-- BookResource
+BookAssembler ..> Book
+Book --> Url
+BookAssetsStore --> BookCategory
+
+@enduml

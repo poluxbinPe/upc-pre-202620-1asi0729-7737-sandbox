@@ -1,0 +1,9 @@
+<mat-button-toggle-group [value]="selectedCategory()"
+                         [attr.aria-label]="'catalogue.category-selector' | translate"
+                         name="bookCategory">
+  @for (category of categories(); track category.id) {
+    <mat-button-toggle [value]="category" (change)="emitCategorySelectedEvent(category)">
+      {{ 'category.' + category.id | translate }}
+    </mat-button-toggle>
+  }
+</mat-button-toggle-group>

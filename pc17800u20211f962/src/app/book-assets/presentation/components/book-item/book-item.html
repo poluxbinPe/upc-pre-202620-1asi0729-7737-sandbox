@@ -1,0 +1,32 @@
+<mat-card class="book-card" appearance="outlined" [attr.aria-label]="book().title">
+  @if (book().hasCover) {
+    <img mat-card-image class="book-cover" loading="lazy"
+         [src]="book().coverUrlAsString"
+         [alt]="'book.cover-alt' | translate:{title: book().title}"/>
+  } @else {
+    <div class="book-cover book-cover-placeholder" role="img"
+         [attr.aria-label]="'book.no-cover' | translate">
+      <mat-icon aria-hidden="true">menu_book</mat-icon>
+    </div>
+  }
+  <mat-card-header>
+    <mat-card-title class="book-title">{{ book().title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <dl class="book-attributes">
+      <dt>{{ 'book.authors' | translate }}</dt>
+      <dd>{{ book().authorNamesAsText || ('book.unknown' | translate) }}</dd>
+      <dt>{{ 'book.first-publish-year' | translate }}</dt>
+      <dd>{{ book().firstPublishYear ?? ('book.unknown' | translate) }}</dd>
+      <dt>{{ 'book.edition-count' | translate }}</dt>
+      <dd>{{ book().editionCount }}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <a mat-button target="_blank" rel="noopener noreferrer"
+       [href]="book().detailsUrlAsString"
+       [attr.aria-label]="'book.details-aria' | translate:{title: book().title}">
+      {{ 'book.details' | translate }}
+    </a>
+  </mat-card-actions>
+</mat-card>

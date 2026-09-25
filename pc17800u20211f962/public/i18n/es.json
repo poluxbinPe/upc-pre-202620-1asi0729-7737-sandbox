@@ -1,0 +1,35 @@
+{
+  "app": {
+    "title": "Open Library Explorer",
+    "logo-alt": "Logo de Open Library"
+  },
+  "language": {
+    "selector": "Idioma de la interfaz",
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "catalogue": {
+    "title": "Catálogo de Libros",
+    "category-selector": "Categoría de libros",
+    "loading": "Cargando libros",
+    "error": "No se pudieron cargar los libros. Inténtelo más tarde."
+  },
+  "category": {
+    "software-engineering": "Ingeniería de Software",
+    "artificial-intelligence": "Inteligencia Artificial"
+  },
+  "book": {
+    "authors": "Autores",
+    "first-publish-year": "Primera publicación",
+    "edition-count": "Ediciones",
+    "unknown": "Desconocido",
+    "details": "Detalles del Libro",
+    "details-aria": "Abrir detalles de {{title}} en una nueva pestaña",
+    "cover-alt": "Portada de {{title}}",
+    "no-cover": "Portada no disponible"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026 Open Library. Todos los derechos reservados.",
+    "developed-by": "Desarrollado por"
+  }
+}
