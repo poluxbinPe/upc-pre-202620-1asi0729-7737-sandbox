@@ -7,7 +7,7 @@ import {Url} from '../../../shared/domain/model/url';
  * Domain entity with TypeScript naming conventions, independent of the
  * snake_case attributes returned by the Open Library API.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export class Book {
   /** Open Library work identifier (for example, "/works/OL123W"). */

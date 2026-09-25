@@ -13,7 +13,7 @@ import {SeriesList} from '../series-list/series-list';
  * Container component that connects the SeriesAssetsStore with the search
  * term selector and the series list.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-series-catalogue',

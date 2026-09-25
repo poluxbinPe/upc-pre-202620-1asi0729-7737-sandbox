@@ -8,7 +8,7 @@ import {BookItem} from '../book-item/book-item';
  * @remarks
  * Displays three cards per row on wide screens and fewer on smaller screens.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-book-list',

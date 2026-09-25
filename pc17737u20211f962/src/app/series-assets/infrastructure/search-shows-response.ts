@@ -6,7 +6,7 @@ import {ShowResource} from './show-response';
  * @remarks
  * The endpoint returns an array of search results ordered by relevance.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export type SearchShowsResponse = ShowSearchResultResource[];
 
@@ -16,7 +16,7 @@ export type SearchShowsResponse = ShowSearchResultResource[];
  * @remarks
  * Wraps the show resource together with its relevance score.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface ShowSearchResultResource {
   /** Relevance score of the result. */

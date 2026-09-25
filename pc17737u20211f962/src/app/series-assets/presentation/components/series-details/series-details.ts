@@ -19,7 +19,7 @@ import {SeriesAssetsStore} from '../../../application/series-assets.store';
  * Requests the series details to the SeriesAssetsStore, which retrieves them
  * from the TVmaze show endpoint, using the series identifier received as dialog data.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-series-details',

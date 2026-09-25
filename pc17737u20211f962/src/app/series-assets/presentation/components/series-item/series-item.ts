@@ -22,7 +22,7 @@ import {SeriesDetails} from '../series-details/series-details';
  * Shows the image, name, language, genres, status and average rating, and a
  * "Series Details" action that opens a dialog with additional information.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-series-item',

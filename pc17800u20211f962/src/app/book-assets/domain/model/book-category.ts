@@ -5,7 +5,7 @@
  * Defines the closed set of categories supported by the Book Assets bounded context
  * and the search term used to retrieve the books of each category.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export class BookCategory {
   /** Software Engineering category. */

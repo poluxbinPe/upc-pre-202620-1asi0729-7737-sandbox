@@ -4,7 +4,7 @@
  * @remarks
  * Guarantees that any non-empty URL used by domain entities has a valid structure.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export class Url {
   private readonly url: string;

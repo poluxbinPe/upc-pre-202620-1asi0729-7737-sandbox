@@ -9,7 +9,7 @@ import {SearchTerm} from '../../../domain/model/search-term';
  * @remarks
  * Receives the search terms and the selected one, and emits the search term chosen by the user.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-search-term-selector',

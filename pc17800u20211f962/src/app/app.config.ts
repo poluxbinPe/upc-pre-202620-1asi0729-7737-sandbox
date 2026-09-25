@@ -9,7 +9,7 @@ import {provideTranslateHttpLoader} from '@ngx-translate/http-loader';
  * @remarks
  * English is the default and fallback language of the user interface.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export const appConfig: ApplicationConfig = {
   providers: [

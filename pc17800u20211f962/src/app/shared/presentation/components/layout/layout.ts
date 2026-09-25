@@ -14,7 +14,7 @@ import {environment} from '../../../../../environments/environment';
  * Shows the Open Library logo and title on the left side of the toolbar and
  * the language switcher on the right side.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-layout',

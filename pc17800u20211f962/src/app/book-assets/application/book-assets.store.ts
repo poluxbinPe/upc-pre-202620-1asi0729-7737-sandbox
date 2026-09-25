@@ -12,7 +12,7 @@ import {OpenLibraryApi} from '../infrastructure/open-library-api';
  * category and a cache of books per category, and exposes read-only projections
  * consumed by presentation components.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class BookAssetsStore {

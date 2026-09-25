@@ -15,7 +15,7 @@ import {SeriesAssembler} from './series-assembler';
  * Applies the Request/Response pattern with HttpClient and returns domain
  * entities by delegating resource mapping to the SeriesAssembler.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class TvMazeApi {

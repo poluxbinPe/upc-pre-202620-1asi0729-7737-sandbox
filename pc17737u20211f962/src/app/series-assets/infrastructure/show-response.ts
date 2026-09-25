@@ -4,7 +4,7 @@
  * @remarks
  * The endpoint returns a single show resource.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export type ShowResponse = ShowResource;
 
@@ -15,7 +15,7 @@ export type ShowResponse = ShowResource;
  * Keeps the provider naming and nested structure so it matches the JSON payload.
  * Nullable attributes may be missing information in the provider payload.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface ShowResource {
   /** Show identifier. */
@@ -54,7 +54,7 @@ export interface ShowResource {
  * @remarks
  * The average is null when the show has no ratings.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface RatingResource {
   /** Average rating from 0 to 10. */
@@ -67,7 +67,7 @@ export interface RatingResource {
  * @remarks
  * Only the attributes used by the application are declared.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface ChannelResource {
   /** Channel identifier. */
@@ -82,7 +82,7 @@ export interface ChannelResource {
  * @remarks
  * Contains the image URLs in the sizes provided by TVmaze.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface ImageResource {
   /** Medium-sized image URL. */

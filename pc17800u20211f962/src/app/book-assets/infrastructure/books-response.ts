@@ -4,7 +4,7 @@
  * @remarks
  * Keeps the provider naming (snake_case) so it matches the JSON payload exactly.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface BooksResponse {
   /** Total number of books found by the provider. */
@@ -21,7 +21,7 @@ export interface BooksResponse {
  * @remarks
  * Optional attributes may be missing in the provider payload.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export interface BookResource {
   /** Work key (for example, "/works/OL123W"). */

@@ -4,7 +4,7 @@
  * @remarks
  * Centralizes provider URLs, paths and keys to avoid hard coding them in source files.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export const environment = {
   production: false,

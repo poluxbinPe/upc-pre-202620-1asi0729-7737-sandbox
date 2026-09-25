@@ -8,7 +8,7 @@ import {environment} from '../../../environments/environment';
  * Builds logo image URLs from a website URL, using the provider base URL and
  * publishable key defined in environment variables.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class LogoDevApi {

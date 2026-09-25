@@ -19,7 +19,7 @@ import {Book} from '../../../domain/model/book.entity';
  * Shows the cover, title, authors, first publish year and edition count, and
  * a "Book Details" action that opens the official page in a new tab.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-book-item',

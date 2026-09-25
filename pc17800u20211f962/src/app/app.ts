@@ -7,7 +7,7 @@ import {Layout} from './shared/presentation/components/layout/layout';
  * @remarks
  * Entry point of the component tree.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-root',

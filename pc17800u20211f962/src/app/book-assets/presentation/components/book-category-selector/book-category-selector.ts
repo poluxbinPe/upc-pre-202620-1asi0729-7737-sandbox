@@ -9,7 +9,7 @@ import {BookCategory} from '../../../domain/model/book-category';
  * @remarks
  * Receives the categories and the selected one, and emits the category chosen by the user.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-book-category-selector',

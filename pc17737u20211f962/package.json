@@ -2,7 +2,7 @@
   "name": "pc17737u20211f962",
   "description": "TV Series Explorer: a TV series catalogue web application built with Angular, Angular Material and a Domain-Driven Design approach.",
   "version": "1.0.0",
-  "author": "Student Name",
+  "author": "Deiby Juan Vargas Manchinelli",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

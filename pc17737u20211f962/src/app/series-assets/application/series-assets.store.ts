@@ -12,7 +12,7 @@ import {TvMazeApi} from '../infrastructure/tv-maze-api';
  * search term, a cache of series per search term and the series whose details
  * are displayed, exposing read-only projections to presentation components.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class SeriesAssetsStore {

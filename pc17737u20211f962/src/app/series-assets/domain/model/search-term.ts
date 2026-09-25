@@ -5,7 +5,7 @@
  * Defines the closed set of search terms supported by the Series Assets bounded
  * context and the query value sent to the provider for each one.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export class SearchTerm {
   /** "Star" search term. */

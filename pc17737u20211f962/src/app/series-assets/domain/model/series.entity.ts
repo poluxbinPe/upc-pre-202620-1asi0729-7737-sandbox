@@ -7,7 +7,7 @@ import {Url} from '../../../shared/domain/model/url';
  * Domain entity with TypeScript naming conventions, independent of the
  * attribute names and nested structure returned by the TVmaze API.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 export class Series {
   /** TVmaze series identifier. */

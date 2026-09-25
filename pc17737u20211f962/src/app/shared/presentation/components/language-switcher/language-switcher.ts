@@ -8,7 +8,7 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
  * @remarks
  * Renders EN | ES toggle buttons and delegates the change to the TranslateService.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-language-switcher',

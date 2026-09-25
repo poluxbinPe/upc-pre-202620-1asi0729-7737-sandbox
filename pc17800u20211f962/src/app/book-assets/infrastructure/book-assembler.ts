@@ -11,7 +11,7 @@ import {environment} from '../../../environments/environment';
  * Applies the Assembler pattern: it is the only place that knows both the
  * provider naming (snake_case) and the domain naming (camelCase).
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class BookAssembler {

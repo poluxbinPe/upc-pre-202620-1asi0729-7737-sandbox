@@ -68,4 +68,4 @@ ng build
 ```
 
 ## Author
-- **Student Name** (U20211F962)
+- **Deiby Juan Vargas Manchinelli** (U20211F962)

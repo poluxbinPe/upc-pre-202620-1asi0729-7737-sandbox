@@ -12,7 +12,7 @@ import {Url} from '../../shared/domain/model/url';
  * provider structure (nested `show`, `rating.average`, `image.medium`) and the
  * domain naming.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Service()
 export class SeriesAssembler {

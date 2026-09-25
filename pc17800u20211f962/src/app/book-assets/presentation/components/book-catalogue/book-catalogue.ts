@@ -13,7 +13,7 @@ import {BookList} from '../book-list/book-list';
  * Container component that connects the BookAssetsStore with the category
  * selector and the book list.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-book-catalogue',

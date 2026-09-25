@@ -7,7 +7,7 @@ import {TranslatePipe} from '@ngx-translate/core';
  * @remarks
  * Shows the copyright notice and the developer information.
  *
- * @author Student Name
+ * @author Deiby Juan Vargas Manchinelli
  */
 @Component({
   selector: 'app-footer',
@@ -18,5 +18,5 @@ import {TranslatePipe} from '@ngx-translate/core';
 })
 export class Footer {
   /** Developer information shown in the footer (student code, first name and last name). */
-  protected readonly developer = 'U20211F962 Student Name';
+  protected readonly developer = 'U20211F962 Deiby Juan Vargas Manchinelli';
 }
