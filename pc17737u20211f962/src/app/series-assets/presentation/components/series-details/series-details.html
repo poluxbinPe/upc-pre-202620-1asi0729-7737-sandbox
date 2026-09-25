@@ -1,0 +1,70 @@
+@if (store.selectedSeries(); as series) {
+  <h2 mat-dialog-title>{{ series.name }}</h2>
+  <mat-dialog-content>
+    <div class="details-container">
+      @if (series.hasImage) {
+        <img class="details-image" [src]="series.imageUrlAsString"
+             [alt]="'series.image-alt' | translate:{name: series.name}"/>
+      }
+      <dl class="details-attributes">
+        <dt>{{ 'series.language' | translate }}</dt>
+        <dd>{{ series.language || ('series.unknown' | translate) }}</dd>
+        <dt>{{ 'series.genres' | translate }}</dt>
+        <dd>{{ series.genresAsText || ('series.unknown' | translate) }}</dd>
+        <dt>{{ 'series.status' | translate }}</dt>
+        <dd>{{ series.status || ('series.unknown' | translate) }}</dd>
+        <dt>{{ 'series.rating' | translate }}</dt>
+        <dd>
+          @if (series.averageRating !== null) {
+            {{ series.averageRating | number:'1.1-1' }} / 10
+          } @else {
+            {{ 'series.not-rated' | translate }}
+          }
+        </dd>
+        <dt>{{ 'series.premiered' | translate }}</dt>
+        <dd>
+          @if (series.premieredOn) {
+            {{ series.premieredOn | date:'mediumDate' }}
+          } @else {
+            {{ 'series.unknown' | translate }}
+          }
+        </dd>
+        <dt>{{ 'series.runtime' | translate }}</dt>
+        <dd>
+          @if (series.runtimeInMinutes !== null) {
+            {{ 'series.minutes' | translate:{minutes: series.runtimeInMinutes} }}
+          } @else {
+            {{ 'series.unknown' | translate }}
+          }
+        </dd>
+        <dt>{{ 'series.channel' | translate }}</dt>
+        <dd>{{ series.channelName || ('series.unknown' | translate) }}</dd>
+      </dl>
+    </div>
+    @if (series.summary) {
+      <h3 class="summary-title">{{ 'series.summary' | translate }}</h3>
+      <p>{{ series.summary }}</p>
+    }
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    @if (series.hasOfficialSite) {
+      <a mat-button target="_blank" rel="noopener noreferrer" [href]="series.officialSiteUrlAsString">
+        {{ 'series.official-site' | translate }}
+      </a>
+    }
+    <button mat-button type="button" mat-dialog-close cdkFocusInitial>{{ 'series.close' | translate }}</button>
+  </mat-dialog-actions>
+} @else {
+  <h2 mat-dialog-title>{{ 'series.details' | translate }}</h2>
+  <mat-dialog-content aria-live="polite">
+    @if (store.detailsError()) {
+      <p role="alert">{{ 'series.details-error' | translate }}</p>
+    } @else {
+      <mat-progress-spinner mode="indeterminate" diameter="48"
+                            [attr.aria-label]="'series.details-loading' | translate"/>
+    }
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" mat-dialog-close>{{ 'series.close' | translate }}</button>
+  </mat-dialog-actions>
+}

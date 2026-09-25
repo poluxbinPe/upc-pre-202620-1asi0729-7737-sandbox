@@ -1,0 +1,9 @@
+<mat-button-toggle-group [value]="selectedSearchTerm()"
+                         [attr.aria-label]="'catalogue.search-term-selector' | translate"
+                         name="searchTerm">
+  @for (searchTerm of searchTerms(); track searchTerm.id) {
+    <mat-button-toggle [value]="searchTerm" (change)="emitSearchTermSelectedEvent(searchTerm)">
+      {{ 'search-term.' + searchTerm.id | translate }}
+    </mat-button-toggle>
+  }
+</mat-button-toggle-group>

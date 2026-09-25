@@ -1,0 +1,46 @@
+{
+  "app": {
+    "title": "TV Series Explorer",
+    "logo-alt": "Logo de TVmaze"
+  },
+  "language": {
+    "selector": "Idioma de la interfaz",
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "catalogue": {
+    "title": "Catálogo de Series",
+    "search-term-selector": "Término de búsqueda",
+    "loading": "Cargando series",
+    "error": "No se pudieron cargar las series. Inténtelo más tarde."
+  },
+  "search-term": {
+    "star": "Star",
+    "love": "Love"
+  },
+  "series": {
+    "language": "Idioma",
+    "genres": "Géneros",
+    "status": "Estado",
+    "rating": "Calificación",
+    "not-rated": "Sin calificación",
+    "unknown": "Desconocido",
+    "premiered": "Estreno",
+    "runtime": "Duración",
+    "minutes": "{{minutes}} min",
+    "channel": "Cadena / Canal",
+    "summary": "Resumen",
+    "details": "Detalles de la Serie",
+    "details-aria": "Ver detalles de {{name}}",
+    "details-loading": "Cargando detalles de la serie",
+    "details-error": "No se pudieron cargar los detalles de la serie.",
+    "official-site": "Sitio Oficial",
+    "close": "Cerrar",
+    "image-alt": "Póster de {{name}}",
+    "no-image": "Imagen no disponible"
+  },
+  "footer": {
+    "copyright": "Copyright © 2026 TV Series Explorer. Todos los derechos reservados.",
+    "developed-by": "Desarrollado por"
+  }
+}

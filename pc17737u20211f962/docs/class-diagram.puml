@@ -1,0 +1,174 @@
+@startuml
+
+package "app" {
+  class App <<component>>
+}
+
+package "shared.domain.model" {
+  class Url {
+    - url: string
+    + {static} isValid(value: string): boolean
+    + isEmpty(): boolean
+    + toString(): string
+  }
+}
+
+package "shared.infrastructure" {
+  class LogoDevApi <<service>> {
+    - baseUrl: string
+    - apiKey: string
+    + getUrlToLogo(url: string): string
+  }
+}
+
+package "shared.presentation.components" {
+  class Layout <<component>> {
+    # logoUrl: string
+  }
+  class LanguageSwitcher <<component>> {
+    # languages: string[]
+    # currentLanguage: Signal<string>
+    + useLanguage(language: string)
+  }
+  class Footer <<component>> {
+    # developer: string
+  }
+}
+
+package "series-assets.domain.model" {
+  class Series <<entity>> {
+    id: number
+    name: string
+    language: string
+    genres: string[]
+    status: string
+    averageRating: number | null
+    imageUrl: Url
+    summary: string
+    premieredOn: string
+    runtimeInMinutes: number | null
+    channelName: string
+    officialSiteUrl: Url
+    genresAsText: string
+    hasImage: boolean
+    hasOfficialSite: boolean
+  }
+  class SearchTerm {
+    + {static} Star: SearchTerm
+    + {static} Love: SearchTerm
+    + id: string
+    + query: string
+    + {static} values(): SearchTerm[]
+  }
+}
+
+package "series-assets.infrastructure" {
+  interface ShowSearchResultResource <<resource>> {
+    score: number
+    show: ShowResource
+  }
+  interface ShowResource <<resource>> {
+    id: number
+    name: string
+    language: string | null
+    genres: string[]
+    status: string
+    runtime: number | null
+    averageRuntime: number | null
+    premiered: string | null
+    officialSite: string | null
+    rating: RatingResource
+    network: ChannelResource | null
+    webChannel: ChannelResource | null
+    image: ImageResource | null
+    summary: string | null
+  }
+  interface RatingResource <<resource>> {
+    average: number | null
+  }
+  interface ChannelResource <<resource>> {
+    id: number
+    name: string
+  }
+  interface ImageResource <<resource>> {
+    medium: string
+    original: string
+  }
+  class SeriesAssembler <<assembler>> {
+    + toEntityFromResource(resource: ShowResource): Series
+    + toEntitiesFromResponse(response: SearchShowsResponse): Series[]
+    - toUrl(value: string): Url
+    - toPlainText(html: string): string
+  }
+  class TvMazeApi <<service>> {
+    - http: HttpClient
+    - seriesAssembler: SeriesAssembler
+    + searchSeries(searchTerm: SearchTerm): Observable<Series[]>
+    + getSeriesById(seriesId: number): Observable<Series>
+  }
+  note "SearchShowsResponse = ShowSearchResultResource[]\nShowResponse = ShowResource" as ResponseNote
+}
+
+package "series-assets.application" {
+  class SeriesAssetsStore <<store>> {
+    - currentSearchTermSignal: WritableSignal<SearchTerm>
+    - seriesSignal: WritableSignal<Record<string, Series[]>>
+    - loadingSignal: WritableSignal<boolean>
+    - errorSignal: WritableSignal<boolean>
+    - selectedSeriesSignal: WritableSignal<Series | null>
+    - detailsLoadingSignal: WritableSignal<boolean>
+    - detailsErrorSignal: WritableSignal<boolean>
+    + searchTerms: SearchTerm[]
+    + currentSearchTerm: Signal<SearchTerm>
+    + currentSearchTermSeries: Signal<Series[]>
+    + selectedSeries: Signal<Series | null>
+    + selectSearchTerm(searchTerm: SearchTerm)
+    + loadSeriesForCurrentSearchTerm()
+    + loadSeriesDetails(seriesId: number)
+  }
+}
+
+package "series-assets.presentation.components" {
+  class SeriesCatalogue <<component>> {
+    + onSearchTermSelected(searchTerm: SearchTerm)
+  }
+  class SearchTermSelector <<component>> {
+    searchTerms: InputSignal<SearchTerm[]>
+    selectedSearchTerm: InputSignal<SearchTerm>
+    searchTermSelected: OutputEmitterRef<SearchTerm>
+  }
+  class SeriesList <<component>> {
+    seriesList: InputSignal<Series[]>
+  }
+  class SeriesItem <<component>> {
+    series: InputSignal<Series>
+    + showSeriesDetails()
+  }
+  class SeriesDetails <<component>> {
+    - seriesId: number
+  }
+}
+
+App --> Layout
+Layout --> LanguageSwitcher
+Layout --> Footer
+Layout --> SeriesCatalogue
+Layout ..> LogoDevApi
+SeriesCatalogue --> SearchTermSelector
+SeriesCatalogue --> SeriesList
+SeriesList --> SeriesItem
+SeriesItem ..> SeriesDetails : opens dialog
+SeriesCatalogue ..> SeriesAssetsStore
+SeriesDetails ..> SeriesAssetsStore
+SeriesAssetsStore ..> TvMazeApi
+TvMazeApi ..> SeriesAssembler
+SeriesAssembler ..> ShowSearchResultResource
+ShowSearchResultResource o-- ShowResource
+ShowResource o-- RatingResource
+ShowResource o-- ChannelResource
+ShowResource o-- ImageResource
+SeriesAssembler ..> Series
+Series --> Url
+SeriesAssetsStore --> SearchTerm
+
+@enduml

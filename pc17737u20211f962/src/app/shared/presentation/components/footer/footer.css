@@ -1,0 +1,11 @@
+.footer-content {
+  margin-top: 32px;
+  padding: 16px;
+  text-align: center;
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+
+.footer-content p {
+  margin: 4px 0;
+}

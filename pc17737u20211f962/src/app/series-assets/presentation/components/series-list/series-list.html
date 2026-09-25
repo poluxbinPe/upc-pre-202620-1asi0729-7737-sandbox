@@ -1,0 +1,7 @@
+<ul class="series-grid">
+  @for (series of seriesList(); track series.id) {
+    <li>
+      <app-series-item [series]="series"/>
+    </li>
+  }
+</ul>

@@ -1,0 +1,39 @@
+<mat-card class="series-card" appearance="outlined" [attr.aria-label]="series().name">
+  @if (series().hasImage) {
+    <img mat-card-image class="series-image" loading="lazy"
+         [src]="series().imageUrlAsString"
+         [alt]="'series.image-alt' | translate:{name: series().name}"/>
+  } @else {
+    <div class="series-image series-image-placeholder" role="img"
+         [attr.aria-label]="'series.no-image' | translate">
+      <mat-icon aria-hidden="true">live_tv</mat-icon>
+    </div>
+  }
+  <mat-card-header>
+    <mat-card-title class="series-title">{{ series().name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <dl class="series-attributes">
+      <dt>{{ 'series.language' | translate }}</dt>
+      <dd>{{ series().language || ('series.unknown' | translate) }}</dd>
+      <dt>{{ 'series.genres' | translate }}</dt>
+      <dd>{{ series().genresAsText || ('series.unknown' | translate) }}</dd>
+      <dt>{{ 'series.status' | translate }}</dt>
+      <dd>{{ series().status || ('series.unknown' | translate) }}</dd>
+      <dt>{{ 'series.rating' | translate }}</dt>
+      <dd>
+        @if (series().averageRating !== null) {
+          {{ series().averageRating | number:'1.1-1' }} / 10
+        } @else {
+          {{ 'series.not-rated' | translate }}
+        }
+      </dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions align="start">
+    <button mat-button type="button" (click)="showSeriesDetails()"
+            [attr.aria-label]="'series.details-aria' | translate:{name: series().name}">
+      {{ 'series.details' | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>
