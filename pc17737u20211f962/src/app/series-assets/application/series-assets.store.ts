@@ -16,6 +16,7 @@ import {TvMazeApi} from '../infrastructure/tv-maze-api';
  */
 @Service()
 export class SeriesAssetsStore {
+  /** Gateway to the TVmaze API. */
   private tvMazeApi = inject(TvMazeApi);
 
   /** Internal signal with the currently selected search term. */

@@ -7,6 +7,7 @@
  * @author Deiby Juan Vargas Manchinelli
  */
 export class Url {
+  /** URL string value, empty when the URL is absent. */
   private readonly url: string;
 
   /**

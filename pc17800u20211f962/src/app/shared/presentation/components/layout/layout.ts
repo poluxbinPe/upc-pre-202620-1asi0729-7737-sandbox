@@ -24,6 +24,7 @@ import {environment} from '../../../../../environments/environment';
   styleUrl: './layout.css'
 })
 export class Layout {
+  /** Logo provider gateway used to resolve the toolbar logo. */
   private logoApi = inject(LogoDevApi);
 
   /** Open Library logo URL resolved through the Logo.dev API. */

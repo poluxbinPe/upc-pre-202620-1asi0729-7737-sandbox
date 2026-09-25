@@ -24,7 +24,7 @@
         <dt>{{ 'series.premiered' | translate }}</dt>
         <dd>
           @if (series.premieredOn) {
-            {{ series.premieredOn | date:'mediumDate' }}
+            {{ series.premieredOn | date:'yyyy-MM-dd' }}
           } @else {
             {{ 'series.unknown' | translate }}
           }

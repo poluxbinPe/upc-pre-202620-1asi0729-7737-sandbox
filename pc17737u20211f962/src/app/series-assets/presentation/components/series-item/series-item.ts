@@ -43,6 +43,7 @@ import {SeriesDetails} from '../series-details/series-details';
   styleUrl: './series-item.css'
 })
 export class SeriesItem {
+  /** Angular Material dialog service used to show the series details. */
   private dialog = inject(MatDialog);
 
   /** Input series to display. */

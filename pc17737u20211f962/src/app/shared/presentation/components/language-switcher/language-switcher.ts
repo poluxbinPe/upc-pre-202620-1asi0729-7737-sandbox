@@ -18,6 +18,7 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
   styleUrl: './language-switcher.css'
 })
 export class LanguageSwitcher {
+  /** Translation service managing the runtime language. */
   private translate = inject(TranslateService);
 
   /** Supported language codes available to users. */

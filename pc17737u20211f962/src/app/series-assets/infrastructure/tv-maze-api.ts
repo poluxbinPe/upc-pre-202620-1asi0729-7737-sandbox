@@ -19,11 +19,17 @@ import {SeriesAssembler} from './series-assembler';
  */
 @Service()
 export class TvMazeApi {
+  /** Base URL of the TVmaze API. */
   private baseUrl = environment.tvMazeApiBaseUrl;
+  /** Path of the show search endpoint. */
   private searchShowsEndpoint = environment.tvMazeSearchShowsEndpointPath;
+  /** Path of the show endpoint. */
   private showsEndpoint = environment.tvMazeShowsEndpointPath;
+  /** Maximum number of search results to keep. */
   private searchResultsLimit = environment.tvMazeSearchResultsLimit;
+  /** Angular HTTP client used to send requests. */
   private http = inject(HttpClient);
+  /** Assembler that maps resources into Series entities. */
   private seriesAssembler = inject(SeriesAssembler);
 
   /**

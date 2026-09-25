@@ -18,11 +18,17 @@ import {BookAssembler} from './book-assembler';
  */
 @Service()
 export class OpenLibraryApi {
+  /** Base URL of the Open Library API. */
   private baseUrl = environment.openLibraryApiBaseUrl;
+  /** Path of the search endpoint. */
   private searchEndpoint = environment.openLibrarySearchEndpointPath;
+  /** Fields requested to the search endpoint. */
   private searchFields = environment.openLibrarySearchFields;
+  /** Maximum number of books requested. */
   private searchLimit = environment.openLibrarySearchLimit;
+  /** Angular HTTP client used to send requests. */
   private http = inject(HttpClient);
+  /** Assembler that maps resources into Book entities. */
   private bookAssembler = inject(BookAssembler);
 
   /**

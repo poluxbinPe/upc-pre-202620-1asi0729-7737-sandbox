@@ -16,6 +16,7 @@ import {OpenLibraryApi} from '../infrastructure/open-library-api';
  */
 @Service()
 export class BookAssetsStore {
+  /** Gateway to the Open Library API. */
   private openLibraryApi = inject(OpenLibraryApi);
 
   /** Internal signal with the currently selected category. */
