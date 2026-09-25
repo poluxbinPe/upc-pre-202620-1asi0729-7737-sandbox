@@ -24,7 +24,7 @@ export class Series {
   averageRating: number | null;
   /** URL to the medium-sized series image. */
   imageUrl: Url;
-  /** Plain-text summary of the series. */
+  /** HTML summary of the series provided by TVmaze. */
   summary: string;
   /** Premiere date in ISO-8601 format, or an empty string when unknown. */
   premieredOn: string;
@@ -63,15 +63,6 @@ export class Series {
    */
   get genresAsText(): string {
     return this.genres.join(', ');
-  }
-
-  /**
-   * Indicates whether the series has an image.
-   *
-   * @returns True when an image URL is available.
-   */
-  get hasImage(): boolean {
-    return !this.imageUrl.isEmpty();
   }
 
   /**

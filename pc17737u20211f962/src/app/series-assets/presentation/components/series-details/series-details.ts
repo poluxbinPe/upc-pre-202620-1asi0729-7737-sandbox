@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -7,8 +7,6 @@ import {
   MatDialogTitle
 } from '@angular/material/dialog';
 import {MatButton} from '@angular/material/button';
-import {MatProgressSpinner} from '@angular/material/progress-spinner';
-import {DatePipe, DecimalPipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import {SeriesAssetsStore} from '../../../application/series-assets.store';
 
@@ -29,13 +27,9 @@ import {SeriesAssetsStore} from '../../../application/series-assets.store';
     MatDialogActions,
     MatDialogClose,
     MatButton,
-    MatProgressSpinner,
-    DatePipe,
-    DecimalPipe,
     TranslatePipe
   ],
   templateUrl: './series-details.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './series-details.css'
 })
 export class SeriesDetails implements OnInit {

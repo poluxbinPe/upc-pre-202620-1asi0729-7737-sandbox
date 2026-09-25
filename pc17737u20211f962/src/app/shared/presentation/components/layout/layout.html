@@ -1,10 +1,8 @@
-<mat-toolbar class="app-toolbar" role="banner">
-  <img class="app-logo" [src]="logoUrl" [alt]="'app.logo-alt' | translate"/>
-  <span class="app-title">{{ 'app.title' | translate }}</span>
+<mat-toolbar color="primary">
+  <img [alt]="'app.logo-alt' | translate" [src]="logoUrl" class="logo"/>
+  <span>{{ 'app.title' | translate }}</span>
   <span class="spacer"></span>
   <app-language-switcher/>
 </mat-toolbar>
-<main class="app-content">
-  <app-series-catalogue/>
-</main>
+<app-series-catalogue/>
 <app-footer/>

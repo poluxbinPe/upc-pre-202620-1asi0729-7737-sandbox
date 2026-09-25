@@ -24,19 +24,19 @@ export class SeriesAssembler {
    * @returns The Series entity.
    */
   toEntityFromResource(resource: ShowResource): Series {
-    const series = new Series();
+    let series = new Series();
     series.id = resource.id;
     series.name = resource.name;
-    series.language = resource.language ?? '';
-    series.genres = resource.genres ?? [];
-    series.status = resource.status ?? '';
-    series.averageRating = resource.rating?.average ?? null;
-    series.imageUrl = this.toUrl(resource.image?.medium);
-    series.summary = this.toPlainText(resource.summary);
-    series.premieredOn = resource.premiered ?? '';
-    series.runtimeInMinutes = resource.averageRuntime ?? resource.runtime ?? null;
-    series.channelName = resource.network?.name ?? resource.webChannel?.name ?? '';
-    series.officialSiteUrl = this.toUrl(resource.officialSite);
+    series.language = resource.language || '';
+    series.genres = resource.genres || [];
+    series.status = resource.status || '';
+    series.averageRating = resource.rating.average;
+    series.imageUrl = new Url(resource.image?.medium || '');
+    series.summary = resource.summary || '';
+    series.premieredOn = resource.premiered || '';
+    series.runtimeInMinutes = resource.averageRuntime || resource.runtime;
+    series.channelName = resource.network?.name || resource.webChannel?.name || '';
+    series.officialSiteUrl = new Url(resource.officialSite || '');
     return series;
   }
 
@@ -48,25 +48,5 @@ export class SeriesAssembler {
    */
   toEntitiesFromResponse(response: SearchShowsResponse): Series[] {
     return response.map(result => this.toEntityFromResource(result.show));
-  }
-
-  /**
-   * Builds a Url value object, using an empty URL for missing or invalid values.
-   *
-   * @param value - URL string from the provider.
-   * @returns The Url value object.
-   */
-  private toUrl(value: string | null | undefined): Url {
-    return new Url(value && Url.isValid(value) ? value : '');
-  }
-
-  /**
-   * Removes HTML tags from a provider text.
-   *
-   * @param html - HTML text from the provider.
-   * @returns The plain text.
-   */
-  private toPlainText(html: string | null): string {
-    return (html ?? '').replace(/<[^>]*>/g, '').trim();
   }
 }

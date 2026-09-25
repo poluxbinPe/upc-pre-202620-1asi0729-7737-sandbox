@@ -50,7 +50,6 @@ package "series-assets.domain.model" {
     channelName: string
     officialSiteUrl: Url
     genresAsText: string
-    hasImage: boolean
     hasOfficialSite: boolean
   }
   class SearchTerm {
@@ -97,8 +96,6 @@ package "series-assets.infrastructure" {
   class SeriesAssembler <<assembler>> {
     + toEntityFromResource(resource: ShowResource): Series
     + toEntitiesFromResponse(response: SearchShowsResponse): Series[]
-    - toUrl(value: string): Url
-    - toPlainText(html: string): string
   }
   class TvMazeApi <<service>> {
     - http: HttpClient
@@ -113,11 +110,7 @@ package "series-assets.application" {
   class SeriesAssetsStore <<store>> {
     - currentSearchTermSignal: WritableSignal<SearchTerm>
     - seriesSignal: WritableSignal<Record<string, Series[]>>
-    - loadingSignal: WritableSignal<boolean>
-    - errorSignal: WritableSignal<boolean>
     - selectedSeriesSignal: WritableSignal<Series | null>
-    - detailsLoadingSignal: WritableSignal<boolean>
-    - detailsErrorSignal: WritableSignal<boolean>
     + searchTerms: SearchTerm[]
     + currentSearchTerm: Signal<SearchTerm>
     + currentSearchTermSeries: Signal<Series[]>

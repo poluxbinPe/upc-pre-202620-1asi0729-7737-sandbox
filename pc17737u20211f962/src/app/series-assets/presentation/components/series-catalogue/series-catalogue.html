@@ -1,16 +1,7 @@
 <section class="series-catalogue" aria-labelledby="series-catalogue-title">
-  <h1 id="series-catalogue-title" class="catalogue-title">{{ 'catalogue.title' | translate }}</h1>
-  <app-search-term-selector [searchTerms]="store.searchTerms"
-                            [selectedSearchTerm]="store.currentSearchTerm()"
-                            (searchTermSelected)="onSearchTermSelected($event)"/>
-  <div class="catalogue-content" aria-live="polite" [attr.aria-busy]="store.loading()">
-    @if (store.loading()) {
-      <mat-progress-spinner mode="indeterminate" diameter="48"
-                            [attr.aria-label]="'catalogue.loading' | translate"/>
-    } @else if (store.error()) {
-      <p role="alert">{{ 'catalogue.error' | translate }}</p>
-    } @else {
-      <app-series-list [seriesList]="store.currentSearchTermSeries()"/>
-    }
-  </div>
+  <h1 id="series-catalogue-title">{{ 'catalogue.title' | translate }}</h1>
+  <app-search-term-selector (searchTermSelected)="onSearchTermSelected($event)"
+                            [searchTerms]="store.searchTerms"
+                            [selectedSearchTerm]="store.currentSearchTerm()"/>
+  <app-series-list [seriesList]="seriesList()"/>
 </section>

@@ -8,9 +8,7 @@ import {
   MatCardTitle
 } from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
-import {MatIcon} from '@angular/material/icon';
 import {MatDialog} from '@angular/material/dialog';
-import {DecimalPipe} from '@angular/common';
 import {TranslatePipe} from '@ngx-translate/core';
 import {Series} from '../../../domain/model/series.entity';
 import {SeriesDetails} from '../series-details/series-details';
@@ -34,8 +32,6 @@ import {SeriesDetails} from '../series-details/series-details';
     MatCardContent,
     MatCardActions,
     MatButton,
-    MatIcon,
-    DecimalPipe,
     TranslatePipe
   ],
   templateUrl: './series-item.html',
@@ -45,7 +41,6 @@ import {SeriesDetails} from '../series-details/series-details';
 export class SeriesItem {
   /** Angular Material dialog service used to show the series details. */
   private dialog = inject(MatDialog);
-
   /** Input series to display. */
   series = input.required<Series>();
 
@@ -54,9 +49,7 @@ export class SeriesItem {
    */
   showSeriesDetails(): void {
     this.dialog.open(SeriesDetails, {
-      data: this.series().id,
-      width: '640px',
-      maxWidth: '95vw'
+      data: this.series().id
     });
   }
 }

@@ -10,9 +10,7 @@
   },
   "catalogue": {
     "title": "Series Catalogue",
-    "search-term-selector": "Search term",
-    "loading": "Loading series",
-    "error": "Series could not be loaded. Please try again later."
+    "search-term-selector": "Search term"
   },
   "search-term": {
     "star": "Star",
@@ -24,20 +22,12 @@
     "status": "Status",
     "rating": "Rating",
     "not-rated": "Not rated",
-    "unknown": "Unknown",
     "premiered": "Premiered",
     "runtime": "Runtime",
-    "minutes": "{{minutes}} min",
     "channel": "Network / Channel",
-    "summary": "Summary",
     "details": "Series Details",
-    "details-aria": "Show details of {{name}}",
-    "details-loading": "Loading series details",
-    "details-error": "Series details could not be loaded.",
     "official-site": "Official Site",
-    "close": "Close",
-    "image-alt": "Poster of {{name}}",
-    "no-image": "Image not available"
+    "close": "Close"
   },
   "footer": {
     "copyright": "Copyright © 2026 TV Series Explorer. All rights reserved.",
